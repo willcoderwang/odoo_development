@@ -12,3 +12,4 @@ class HospitalPatient(models.Model):
         ('male', 'Male'),
         ('female', 'Female'),
     ], string="Gender")
+    active = fields.Boolean(default=True)
