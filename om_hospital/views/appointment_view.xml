@@ -31,6 +31,16 @@
                             <field name="appointment_time"/>
                         </group>
                     </group>
+
+                    <notebook>
+                        <page string="Prescription" name="prescription">
+
+                        </page>
+
+                        <page string="Pharmacy" name="pharmacy">
+                            
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user"
