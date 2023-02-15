@@ -12,7 +12,7 @@ class HospitalAppointment(models.Model):
     appointment_time = fields.Datetime(default=fields.Datetime.now)
     booking_date = fields.Date(default=fields.Date.context_today)
 
-    ref = fields.Char(string="Reference")
+    ref = fields.Char(string="Reference", help="Reference from patient record")
     prescription = fields.Html()
     priority = fields.Selection([
         ('0', 'Normal'),

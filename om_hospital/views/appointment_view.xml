@@ -34,14 +34,24 @@
                             <field name="patient_id"/>
                             <field name="ref"/>
                             <field name="gender"/>
-                            <field name="booking_date"/>
+                            <field name="booking_date" help="Date of booking"/>
                         </group>
                         <group>
                             <field name="appointment_time"/>
-                            <button name="action_test" string="Object Button" type="object" class="oe_highlight"
-                                    confirm="Are you sure to execute python code?"/>
-                            <button name="%(action_hospital_patient)d" string="Action Button" type="action"
-                                    class="oe_highlight" confirm="Are you sure to open the patient action?"/>
+                            <button name="action_test"
+                                    string="Object Button"
+                                    type="object"
+                                    class="oe_highlight"
+                                    confirm="Are you sure to execute python code?"
+                                    help="A message will be printed in the log"
+                            />
+                            <button name="%(action_hospital_patient)d"
+                                    string="Action Button"
+                                    type="action"
+                                    class="oe_highlight"
+                                    confirm="Are you sure to open the patient action?"
+                                    help="On clicking this button you will be redirected to patient records"
+                            />
                         </group>
                     </group>
 
