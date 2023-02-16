@@ -10,6 +10,12 @@
                 <field name="gender"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
+                <field name="state"
+                       widget="badge"
+                       decoration-warning="state == 'in_consultation'"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'cancel'"
+                       decoration-info="state not in ('in_consultation', 'done', 'cancel')"/>
             </tree>
         </field>
     </record>
