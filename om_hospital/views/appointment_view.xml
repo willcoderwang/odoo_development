@@ -12,7 +12,8 @@
                   decoration-info="state not in ('in_consultation', 'done', 'cancel')">
                 <field name="patient_id"/>
                 <field name="gender"/>
-                <field name="appointment_time"/>
+                <field name="ref" optional="hide"/>
+                <field name="appointment_time" optional="show"/>
                 <field name="booking_date"/>
                 <field name="activity_ids" widget="list_activity"/>
                 <field name="state"
