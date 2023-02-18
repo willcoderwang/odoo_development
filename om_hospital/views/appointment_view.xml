@@ -73,7 +73,7 @@
                         <page string="Prescription" name="prescription">
                             <field name="prescription"
                                    placeholder="Enter your prescription!"
-                                   options="{'collaborative': true}"
+                                   options="{'collaborative': true, 'resizable': true}"
                             />
                         </page>
 
