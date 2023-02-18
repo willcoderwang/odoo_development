@@ -10,7 +10,8 @@
                   decoration-success="state == 'done'"
                   decoration-danger="state == 'cancel'"
                   decoration-info="state not in ('in_consultation', 'done', 'cancel')"
-                  sample="1">
+                  sample="1"
+                  multi_edit="1">
                 <field name="patient_id"/>
                 <field name="gender"/>
                 <field name="ref" optional="hide"/>
