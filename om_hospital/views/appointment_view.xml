@@ -81,6 +81,7 @@
                             <field name="hide_sale_price"/>
                             <field name="appointment_time"/>
                             <button name="action_test"
+                                    groups="base.group_no_one"
                                     string="Object Button"
                                     type="object"
                                     class="oe_highlight"
