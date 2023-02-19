@@ -17,6 +17,7 @@ class HospitalPatient(models.Model):
         ('female', 'Female'),
     ], string="Gender", tracking=True, default='female')
     active = fields.Boolean(default=True)
+    image = fields.Image()
 
     @api.depends('date_of_birth')
     def _compute_age(self):
