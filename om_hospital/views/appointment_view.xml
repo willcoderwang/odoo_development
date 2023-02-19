@@ -5,7 +5,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree create="0" delete="0"
+            <tree create="1" delete="0"
                   decoration-warning="state == 'in_consultation'"
                   decoration-success="state == 'done'"
                   decoration-danger="state == 'cancel'"
@@ -37,6 +37,7 @@
                 <header>
                     <button name="action_in_consultation"
                             string="In Consultation"
+                            data-hotkey="i"
                             class="oe_highlight"
                             type="object"
                             states="draft"
@@ -44,11 +45,13 @@
                     <button name="action_done"
                             string="Mark as Done"
                             class="oe_highlight"
+                            data-hotkey="v"
                             type="object"
                             states="in_consultation"
                     />
                     <button name="action_cancel"
                             string="Cancel"
+                            data-hotkey="z"
                             type="object"
                             states="draft,in_consultation"
                     />
