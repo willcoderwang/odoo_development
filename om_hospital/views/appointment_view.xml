@@ -161,6 +161,6 @@
             id="menu_appointment"
             name="Appointment"
             action="action_hospital_appointment"
-            parent="menu_patient_master"
+            parent="menu_hospital_root"
             sequence="10"/>
 </odoo>
