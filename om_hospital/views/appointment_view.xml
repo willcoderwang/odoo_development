@@ -34,17 +34,18 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <activity string="Appointments">
-                    <field name="patient_id"/>
-                    <field name="ref"/>
-                    <templates>
-                        <div t-name="activity-box">
-                            <img t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)" t-att-title="record.patient_id.value"/>
-                            <div>
-                                <field name="ref" display="full"/>
-                            </div>
+                <field name="patient_id"/>
+                <field name="ref"/>
+                <templates>
+                    <div t-name="activity-box">
+                        <img t-att-src="activity_image('hospital.patient', 'image', record.patient_id.raw_value)"
+                             t-att-title="record.patient_id.value"/>
+                        <div>
+                            <field name="ref" display="full"/>
                         </div>
-                    </templates>
-                </activity>
+                    </div>
+                </templates>
+            </activity>
         </field>
     </record>
 
@@ -180,6 +181,6 @@
             id="menu_appointment"
             name="Appointment"
             action="action_hospital_appointment"
-            parent="menu_hospital_root"
+            parent="menu_appointment_master"
             sequence="10"/>
 </odoo>

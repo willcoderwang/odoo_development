@@ -7,3 +7,6 @@ class CancelAppointmentWizard(models.TransientModel):
 
     appointment_id = fields.Many2one('hospital.appointment')
 
+    def action_cancel(self):
+        return
+
