@@ -69,8 +69,14 @@
                             type="object"
                             states="in_consultation"
                     />
-                    <button name="action_cancel"
+                    <button name="%(om_hospital.action_cancel_appointment)d"
                             string="Cancel"
+                            data-hotkey="z"
+                            type="action"
+                            states="draft,in_consultation"
+                    />
+                    <button name="action_cancel"
+                            string="Cancel 2"
                             data-hotkey="z"
                             type="object"
                             states="draft,in_consultation"
