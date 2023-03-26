@@ -10,7 +10,7 @@ class HospitalPatient(models.Model):
 
     name = fields.Char(string="Name", tracking=True)
     date_of_birth = fields.Date()
-    ref = fields.Char(string="Reference", default="Odoo Mates")
+    ref = fields.Char(string="Reference", default=lambda self: self.env['ir.sequence'].next_by_code('hospital.patient'))
     age = fields.Integer(string="Age", compute="_compute_age", tracking=True)
     gender = fields.Selection([
         ('male', 'Male'),
