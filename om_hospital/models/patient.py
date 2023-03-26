@@ -24,6 +24,9 @@ class HospitalPatient(models.Model):
     def create(self, vals_list):
         return super().create(vals_list)
 
+    def write(self, vals):
+        return super().write(vals)
+
     @api.depends('date_of_birth')
     def _compute_age(self):
         for rec in self:
