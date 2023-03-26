@@ -20,6 +20,10 @@ class HospitalPatient(models.Model):
     image = fields.Image()
     tag_ids = fields.Many2many('patient.tag')
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        return super().create(vals_list)
+
     @api.depends('date_of_birth')
     def _compute_age(self):
         for rec in self:
