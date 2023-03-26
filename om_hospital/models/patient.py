@@ -36,3 +36,6 @@ class HospitalPatient(models.Model):
                         (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
             else:
                 rec.age = 0
+
+    def name_get(self):
+        return [(rec.id, f"{rec.ref} - {rec.name}") for rec in self]
