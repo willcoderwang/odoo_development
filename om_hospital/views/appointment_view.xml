@@ -74,6 +74,7 @@
                             data-hotkey="z"
                             type="action"
                             states="draft,in_consultation"
+                            context="{'default_appointment_id': active_id}"
                     />
                     <button name="action_cancel"
                             string="Cancel 2"
