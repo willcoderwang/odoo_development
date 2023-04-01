@@ -74,13 +74,14 @@
                             data-hotkey="z"
                             type="action"
                             states="draft,in_consultation"
-                            context="{'default_appointment_id': active_id}"
+                            context="{'default_appointment_id': active_id, 'hide_appointment_id': True}"
                     />
                     <button name="action_cancel"
                             string="Cancel 2"
                             data-hotkey="z"
                             type="object"
                             states="draft,in_consultation"
+                            context="{'hide_appointment_id': True}"
                     />
                     <button name="action_draft"
                             string="Reset to Draft"
