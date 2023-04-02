@@ -53,7 +53,7 @@
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <form create="0" delete="0" edit="1">
+            <form create="0" delete="1" edit="1">
                 <header>
                     <button name="action_in_consultation"
                             string="In Consultation"
