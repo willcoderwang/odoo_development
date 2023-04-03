@@ -20,6 +20,13 @@ class HospitalPatient(models.Model):
     active = fields.Boolean(default=True)
     image = fields.Image()
     tag_ids = fields.Many2many('patient.tag')
+    appointment_count = fields.Integer(compute="_compute_appointment_count", string="Appointment Count", store=True)
+    appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string="Appointments")
+
+    @api.depends('appointment_ids')
+    def _compute_appointment_count(self):
+        for rec in self:
+            rec.appointment_count = len(rec.appointment_ids)
 
     @api.constrains('date_of_birth')
     def _check_date_of_birth(self):
