@@ -41,7 +41,7 @@
                         <group>
                             <field name="parent" attrs="{'invisible': [('age', '>', 18)]}"/>
                             <field name="marital_status"/>
-                            <field name="partner_name"/>
+                            <field name="partner_name" attrs="{'readonly': [('marital_status', '!=', 'married')]}"/>
                         </group>
                     </group>
                 </sheet>
