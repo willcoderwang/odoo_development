@@ -25,4 +25,5 @@ class CancelAppointmentWizard(models.TransientModel):
     def action_cancel(self):
         if self.appointment_id.booking_date <= fields.Date.today():
             raise ValidationError(_("Sorry, cancellation is not allowed on the same day or after of booking!"))
+        self.appointment_id.state = 'cancel'
         return
