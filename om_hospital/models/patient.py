@@ -38,6 +38,12 @@ class HospitalPatient(models.Model):
             if rec.date_of_birth and rec.date_of_birth > fields.Date.today():
                 raise ValidationError(_("The entered date of birth is not acceptable."))
 
+    @api.ondelete(at_uninstall=False)
+    def _check_appointments(self):
+        for rec in self:
+            if rec.appointment_ids:
+                raise ValidationError(_("You cannot delete a patient with appointments."))
+
     @api.model_create_multi
     def create(self, vals_list):
         return super().create(vals_list)
