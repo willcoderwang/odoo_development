@@ -63,3 +63,7 @@ class HospitalPatient(models.Model):
 
     def name_get(self):
         return [(rec.id, f"{rec.ref} - {rec.name}") for rec in self]
+
+    def action_test(self):
+        print("Clicked...")
+        return
