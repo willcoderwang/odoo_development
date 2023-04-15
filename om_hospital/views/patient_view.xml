@@ -39,8 +39,7 @@
                         <group>
                             <field name="gender" widget="radio"/>
                             <field name="tag_ids"
-                                   widget="many2many_tags"
-                                   options="{'color_field': 'color'}"/>
+                                   widget="many2many_checkboxes"/>
                             <field name="active" invisible="1"/>
                         </group>
                     </group>
