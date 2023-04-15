@@ -14,7 +14,8 @@ class HospitalPatient(models.Model):
     name = fields.Char(string="Name", tracking=True)
     date_of_birth = fields.Date()
     ref = fields.Char(string="Reference", default=lambda self: self.env['ir.sequence'].next_by_code('hospital.patient'))
-    age = fields.Integer(string="Age", compute="_compute_age", inverse='_inverse_age', tracking=True)
+    age = fields.Integer(string="Age", compute="_compute_age", inverse='_inverse_age', search='_search_age',
+                         tracking=True)
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
@@ -67,6 +68,13 @@ class HospitalPatient(models.Model):
     def _inverse_age(self):
         for rec in self:
             rec.date_of_birth = fields.Date.today() - relativedelta(years=rec.age)
+
+    @api.model
+    def _search_age(self, operator, operand):
+        date_of_birth = date.today() - relativedelta(years=operand)
+        start_of_year = date_of_birth.replace(month=1, day=1)
+        end_of_year = date_of_birth.replace(month=12, day=31)
+        return [('date_of_birth', '>=', start_of_year), ('date_of_birth', '<=', end_of_year)]
 
     def name_get(self):
         return [(rec.id, f"{rec.ref} - {rec.name}") for rec in self]
