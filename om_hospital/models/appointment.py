@@ -28,6 +28,7 @@ class HospitalAppointment(models.Model):
     doctor_id = fields.Many2one('res.users')
     pharmacy_line_ids = fields.One2many('appointment.pharmacy.lines', 'appointment_id', string="Pharmacy Lines")
     hide_sale_price = fields.Boolean()
+    operation_id = fields.Many2one('hospital.operation')
 
     def unlink(self):
         if self.state != 'draft':

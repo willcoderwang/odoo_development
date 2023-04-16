@@ -22,6 +22,7 @@
         'views/patient_tag_view.xml',
         'views/odoo_playground_view.xml',
         'views/res_config_settings_views.xml',
+        'views/operation_view.xml',
     ],
     'demo': [],
     'installable': True,
