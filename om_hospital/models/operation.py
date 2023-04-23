@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class HospitalOperation(models.Model):
@@ -10,3 +10,7 @@ class HospitalOperation(models.Model):
 
     operation_name = fields.Char(string="Name")
     doctor_id = fields.Many2one('res.users')
+
+    @api.model
+    def name_create(self, name):
+        return self.create({'operation_name': name}).name_get()[0]
