@@ -6,8 +6,10 @@ class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Hospital Appointment"
-    _rec_name = 'patient_id'
+    _order = 'id desc'
 
+    name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
+                       default=lambda self: _('New'))
     patient_id = fields.Many2one(comodel_name='hospital.patient', string="Patient", ondelete="restrict")
     gender = fields.Selection(related="patient_id.gender", readonly=False)
     appointment_time = fields.Datetime(default=fields.Datetime.now)
@@ -29,6 +31,13 @@ class HospitalAppointment(models.Model):
     pharmacy_line_ids = fields.One2many('appointment.pharmacy.lines', 'appointment_id', string="Pharmacy Lines")
     hide_sale_price = fields.Boolean()
     operation_id = fields.Many2one('hospital.operation')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('hospital.appointment') or _('New')
+        res = super(HospitalAppointment, self).create(vals)
+        return res
 
     def unlink(self):
         if self.state != 'draft':
