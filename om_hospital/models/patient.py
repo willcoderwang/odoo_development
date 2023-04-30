@@ -29,11 +29,21 @@ class HospitalPatient(models.Model):
     marital_status = fields.Selection([('married', 'Married'), ('single', 'Single')], string="Marital Status",
                                       default='single', tracking=True)
     partner_name = fields.Char(string="Partner Name")
+    is_birthday = fields.Boolean(string="Birthday ?", compute="_compute_is_birthday")
 
     @api.depends('appointment_ids')
     def _compute_appointment_count(self):
         for rec in self:
             rec.appointment_count = len(rec.appointment_ids)
+
+    @api.depends('date_of_birth')
+    def _compute_is_birthday(self):
+        today = date.today()
+        for rec in self:
+            is_birthday = False
+            if rec.date_of_birth and rec.date_of_birth.day == today.day and rec.date_of_birth.month == today.month:
+                is_birthday = True
+            rec.is_birthday = is_birthday
 
     @api.constrains('date_of_birth')
     def _check_date_of_birth(self):
