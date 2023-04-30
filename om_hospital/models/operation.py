@@ -10,6 +10,8 @@ class HospitalOperation(models.Model):
 
     operation_name = fields.Char(string="Name")
     doctor_id = fields.Many2one('res.users')
+    reference_record = fields.Reference([('hospital.patient', 'Patient'), ('hospital.appointment', 'Appointment')],
+                                        string="Record")
 
     @api.model
     def name_create(self, name):
