@@ -47,6 +47,7 @@
                     <button name="action_test" string="Click Me" type="object" class="oe_highlight"/>
                     <button name="edit" type="edit" icon="fa-edit" title="Edit"/>
                 </groupby>
+                <field name="progress" widget="progressbar"/>
             </tree>
         </field>
     </record>
@@ -151,6 +152,13 @@
                     </group>
 
                     <notebook>
+                        <page string="Progress" name="progress">
+                            <field name="progress_max" invisible="1"/>
+<!--                            seems style doesn't work here-->
+                            <field name="progress" widget="gauge" options="{'max_field': 'progress_max', 'style': 'width: 100px; height: 100px;'}" />
+                            <field name="progress" widget="percentpie" />
+                        </page>
+
                         <page string="Prescription" name="prescription">
                             <field name="prescription"
                                    placeholder="Enter your prescription!"
