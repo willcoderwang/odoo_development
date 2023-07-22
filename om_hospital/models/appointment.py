@@ -16,6 +16,7 @@ class HospitalAppointment(models.Model):
     gender = fields.Selection(related="patient_id.gender", readonly=False)
     appointment_time = fields.Datetime(default=fields.Datetime.now)
     booking_date = fields.Date(default=fields.Date.context_today)
+    duration = fields.Float()
 
     ref = fields.Char(string="Reference", help="Reference from patient record")
     prescription = fields.Html()
