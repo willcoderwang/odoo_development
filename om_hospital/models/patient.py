@@ -95,3 +95,14 @@ class HospitalPatient(models.Model):
     def action_test(self):
         print("Clicked...")
         return
+
+    def action_view_appointments(self):
+        return {
+            'name': _('Appointments'),
+            'res_model': 'hospital.appointment',
+            'view_mode': 'list,form,calendar,activity',
+            'context': {'default_patient_id': self.id},
+            'domain': [('patient_id', '=', self.id)],
+            'target': 'current',
+            'type': 'ir.actions.act_window',
+        }
