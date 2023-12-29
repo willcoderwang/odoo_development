@@ -20,7 +20,7 @@
                 </header>
                 <field name="name"/>
                 <field name="patient_id"/>
-                <field name="gender"/>
+                <field name="gender" decoration-bf="1" decoration-it="1" decoration-warning="gender == 'female'"/>
                 <field name="ref" optional="hide"/>
                 <field name="doctor_id" widget="many2one_avatar_user"/>
                 <field name="appointment_time" optional="show"/>
