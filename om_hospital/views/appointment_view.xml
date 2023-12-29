@@ -155,9 +155,10 @@
                     <notebook>
                         <page string="Progress" name="progress">
                             <field name="progress_max" invisible="1"/>
-<!--                            seems style doesn't work here-->
-                            <field name="progress" widget="gauge" options="{'max_field': 'progress_max', 'style': 'width: 100px; height: 100px;'}" />
-                            <field name="progress" widget="percentpie" />
+                            <!--                            seems style doesn't work here-->
+                            <field name="progress" widget="gauge"
+                                   options="{'max_field': 'progress_max', 'style': 'width: 100px; height: 100px;'}"/>
+                            <field name="progress" widget="percentpie"/>
                         </page>
 
                         <page string="Prescription" name="prescription">
@@ -170,10 +171,13 @@
                         <page string="Pharmacy" name="pharmacy">
                             <field name="pharmacy_line_ids">
                                 <tree editable="bottom">
+                                    <field name="company_currency_id" invisible="1"/>
                                     <field name="product_id"/>
-                                    <field name="price_unit"
+                                    <field name="price_unit" widget="monetary"
+                                           options="{'currency_field': 'company_currency_id'}"
                                            attrs="{'column_invisible':[('parent.hide_sale_price', '=', True)]}"/>
                                     <field name="qty"/>
+                                    <field name="price_subtotal"/>
                                 </tree>
                                 <form>
                                     <group>
