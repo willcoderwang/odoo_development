@@ -13,11 +13,11 @@ class HospitalAppointment(models.Model):
 
     name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True,
                        default=lambda self: _('New'))
-    patient_id = fields.Many2one(comodel_name='hospital.patient', string="Patient", ondelete="restrict")
+    patient_id = fields.Many2one(comodel_name='hospital.patient', string="Patient", ondelete="restrict", tracking=2)
     gender = fields.Selection(related="patient_id.gender", readonly=False)
     appointment_time = fields.Datetime(default=fields.Datetime.now)
-    booking_date = fields.Date(default=fields.Date.context_today)
-    duration = fields.Float()
+    booking_date = fields.Date(default=fields.Date.context_today, tracking=4)
+    duration = fields.Float(tracking=3)
 
     ref = fields.Char(string="Reference", help="Reference from patient record")
     prescription = fields.Html()
@@ -31,7 +31,7 @@ class HospitalAppointment(models.Model):
         ('in_consultation', 'In Consultation'),
         ('done', 'Done'),
         ('cancel', 'Canceled')], default="draft", string="Status", required=True)
-    doctor_id = fields.Many2one('res.users')
+    doctor_id = fields.Many2one('res.users', tracking=1)
     pharmacy_line_ids = fields.One2many('appointment.pharmacy.lines', 'appointment_id', string="Pharmacy Lines")
     hide_sale_price = fields.Boolean()
     operation_id = fields.Many2one('hospital.operation')
