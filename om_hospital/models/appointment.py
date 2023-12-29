@@ -68,6 +68,13 @@ class HospitalAppointment(models.Model):
             }
         }
 
+    def action_url(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': 'https://github.com/odoo/odoo',
+        }
+
     def action_in_consultation(self):
         for rec in self:
             if rec.state == 'draft':

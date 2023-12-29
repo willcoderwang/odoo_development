@@ -149,6 +149,13 @@
                                     confirm="Are you sure to open the patient action?"
                                     help="On clicking this button you will be redirected to patient records"
                             />
+                            <button name="action_url"
+                                    string="URL Action"
+                                    type="object"
+                                    class="oe_highlight"
+                                    confirm="Are you sure to redirect to this URL?"
+                                    help="A URL action"
+                            />
                         </group>
                     </group>
 
