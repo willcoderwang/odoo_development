@@ -111,6 +111,13 @@
                             type="object"
                             states="cancel"
                     />
+                    <button name="action_share_whatsapp"
+                            string="Share in Whatsapp"
+                            data-hotkey="w"
+                            class="oe_highlight"
+                            type="object"
+                            icon="fa-whatsapp"
+                    />
                     <field name="state" widget="statusbar" nolabel="1"
                            statusbar_visible="draft,in_consultation,done"/>
                 </header>

@@ -92,6 +92,19 @@ class HospitalAppointment(models.Model):
         for rec in self:
             rec.state = 'draft'
 
+    def action_share_whatsapp(self):
+        self.ensure_one()
+        if not self.patient_id.phone:
+            raise ValidationError("Missing phone number in patient record")
+
+        message = f"Hi {self.patient_id.name}, your appointment is: {self.name}, Thank you"
+        whatsapp_api_url = f"https://api.whatsapp.com/send?phone={self.patient_id.phone}&text={message}"
+        return {
+            'type': 'ir.actions.act_url',
+            'target': 'new',
+            'url': whatsapp_api_url,
+        }
+
     @api.depends('state')
     def _compute_progress(self):
         for rec in self:
