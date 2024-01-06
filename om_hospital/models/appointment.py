@@ -99,6 +99,9 @@ class HospitalAppointment(models.Model):
 
         message = f"Hi {self.patient_id.name}, your appointment is: {self.name}, Thank you"
         whatsapp_api_url = f"https://api.whatsapp.com/send?phone={self.patient_id.phone}&text={message}"
+
+        self.message_post(body=message, subject="Whatsapp Message")
+        
         return {
             'type': 'ir.actions.act_url',
             'target': 'new',
