@@ -105,6 +105,22 @@ class HospitalAppointment(models.Model):
             'url': whatsapp_api_url,
         }
 
+    def action_notification(self):
+        action = self.env.ref('om_hospital.action_hospital_patient')
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Click the following link to go to the patient'),
+                'message': '%s',
+                'links': [{
+                    'label': self.patient_id.name,
+                    'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient&view_type=form'
+                }],
+                'sticky': True,
+            }
+        }
+
     @api.depends('state')
     def _compute_progress(self):
         for rec in self:

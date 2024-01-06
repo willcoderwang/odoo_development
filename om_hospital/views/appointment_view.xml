@@ -163,6 +163,11 @@
                                     confirm="Are you sure to redirect to this URL?"
                                     help="A URL action"
                             />
+                            <button name="action_notification"
+                                    string="Generate Notification"
+                                    type="object"
+                                    class="oe_highlight"
+                            />
                         </group>
                     </group>
 
