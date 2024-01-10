@@ -130,6 +130,15 @@ class HospitalAppointment(models.Model):
             }
         }
 
+    def action_sql_query(self):
+        cr = self._cr
+        query = """ SELECT id, name
+                    FROM hospital_patient
+                    WHERE id=%s """
+        cr.execute(query, (self.patient_id.id,))
+        patient = cr.dictfetchone()
+        print("patient ====> ", patient)
+
     @api.depends('state')
     def _compute_progress(self):
         for rec in self:

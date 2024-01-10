@@ -168,6 +168,12 @@
                                     type="object"
                                     class="oe_highlight"
                             />
+                            <button name="action_sql_query"
+                                    string="SQL Query"
+                                    type="object"
+                                    class="oe_highlight"
+                                    help="do a sql query and print result to console"
+                            />
                         </group>
                     </group>
 
