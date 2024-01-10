@@ -121,6 +121,12 @@ class HospitalAppointment(models.Model):
                     'url': f'#action={action.id}&id={self.patient_id.id}&model=hospital.patient&view_type=form'
                 }],
                 'sticky': True,
+                'next': {
+                    'type': 'ir.actions.act_window',
+                    'res_model': 'hospital.patient',
+                    'res_id': self.patient_id.id,
+                    'views': [(False, 'form')],
+                }
             }
         }
 
