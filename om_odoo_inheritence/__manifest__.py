@@ -21,6 +21,7 @@
 
     # any module necessary for this one to work correctly
     'depends': [
+        'mail',
         'sale',
         'stock',
     ],
@@ -30,6 +31,7 @@
         # 'security/ir.model.access.csv',
         'views/sale_order_view.xml',
         'views/account_move_view.xml',
+        'views/res_partner_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
