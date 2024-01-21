@@ -9,6 +9,8 @@
         'mail',
         'product',
     ],
+    # 'excludes': ['module1', 'module2'],
+    # excludes is a list of modules incompatible with this module. If any module in this list is already installed, this module cannot be installed.
     'data': [
         'security/ir.model.access.csv',
         'data/patient_tag_data.xml',
