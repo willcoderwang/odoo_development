@@ -25,6 +25,8 @@
         'views/odoo_playground_view.xml',
         'views/res_config_settings_views.xml',
         'views/operation_view.xml',
+        'report/report.xml',
+        'report/patient_card.xml',
     ],
     'demo': [],
     'installable': True,
