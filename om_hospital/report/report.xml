@@ -20,5 +20,15 @@
             <field name="binding_model_id" ref="model_hospital_patient"/>
             <field name="binding_type">report</field>
         </record>
+
+        <record id="report_appointment" model="ir.actions.report">
+            <field name="name">Appointment</field>
+            <field name="model">appointment.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">om_hospital.report_appointment_template</field>
+            <field name="report_file">om_hospital.report_appointment_template</field>
+            <field name="binding_model_id" ref="model_appointment_report_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
     </data>
 </odoo>
