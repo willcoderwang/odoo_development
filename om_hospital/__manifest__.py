@@ -8,6 +8,7 @@
     'depends': [
         'mail',
         'product',
+        'report_xlsx',
     ],
     # 'excludes': ['module1', 'module2'],
     # excludes is a list of modules incompatible with this module. If any module in this list is already installed, this module cannot be installed.
