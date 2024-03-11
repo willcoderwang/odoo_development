@@ -31,3 +31,6 @@ class AppointmentReportWizard(models.TransientModel):
         }
 
         return self.env.ref('om_hospital.report_appointment').report_action(self, data=data)
+
+    def action_print_excel_report(self):
+        return self.env.ref('om_hospital.report_patient_appointment_xlsx').report_action(self, data={})
