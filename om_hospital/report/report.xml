@@ -39,5 +39,15 @@
             <field name="report_file">om_hospital.report_patient_appointment_xlsx_template</field>
             <field name="binding_type">report</field>
         </record>
+
+        <record id="report_all_patient" model="ir.actions.report">
+            <field name="name">Patient Details</field>
+            <field name="model">patient.report.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">om_hospital.report_all_patient_template</field>
+            <field name="report_file">om_hospital.report_all_patient_template</field>
+            <field name="binding_model_id" ref="model_patient_report_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
     </data>
 </odoo>
