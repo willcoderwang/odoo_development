@@ -48,6 +48,17 @@ class HospitalAppointment(models.Model):
         res = super(HospitalAppointment, self).create(vals)
         return res
 
+    def write(self, vals):
+        res = super().write(vals)
+        self.set_line_number()
+        return res
+    
+    def set_line_number(self):
+        sl_no = 0
+        for line in self.pharmacy_line_ids:
+            sl_no += 1
+            line.sl_no = sl_no
+
     def unlink(self):
         if self.state != 'draft':
             raise ValidationError(_("You can only delete appointment with draft status!"))
@@ -157,6 +168,7 @@ class AppointmentPharmacyLines(models.Model):
     _name = "appointment.pharmacy.lines"
     _description = "Appointment Pharmacy Lines"
 
+    sl_no = fields.Integer('SNO.')
     product_id = fields.Many2one('product.product', required=True)
     price_unit = fields.Float(string="price", related="product_id.list_price")
     qty = fields.Integer(string="Quantity", default=1)
