@@ -50,6 +50,10 @@
                                     </td>
                                 </tr>
                             </table>
+                            <img t-att-src="'/report/barcode/QR/%s' % o.ref" style="width: 150px; height: 150px"
+                                 alt="QR Code"/>
+                            <div t-field="o.ref"
+                                 t-options="{'widget': 'barcode', 'humanreadable': 1, 'width': 600, 'height': 100}"/>
                         </div>
                     </div>
                 </div>
