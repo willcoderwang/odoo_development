@@ -41,6 +41,9 @@
                     <table class="table table-bordered mt32">
                         <thead>
                             <tr>
+                                <th name="th_sl_no" class="text-left">
+                                    <span>SNO.</span>
+                                </th>
                                 <th name="th_reference" class="text-left">
                                     <span>Reference</span>
                                 </th>
@@ -56,6 +59,9 @@
                         <t t-foreach="appointments" t-as="appointment">
                             <t t-set="appointment_count" t-value="appointment_count + 1"/>
                             <tr>
+                                <td>
+                                    <span t-esc="appointment_index + 1"/>
+                                </td>
                                 <td>
                                     <span t-esc="appointment['name']"/>
                                 </td>
