@@ -17,6 +17,7 @@
         'data/patient_tag_data.xml',
         'data/patient.tag.csv',
         'data/sequence_data.xml',
+        'data/mail_template_data.xml',
         'views/menu.xml',
         'wizard/cancel_appointment_view.xml',
         'wizard/appointment_report_view.xml',
