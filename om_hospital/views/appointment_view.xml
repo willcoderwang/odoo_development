@@ -118,6 +118,11 @@
                             type="object"
                             icon="fa-whatsapp"
                     />
+                    <button name="action_send_email"
+                            string="Send Email"
+                            class="oe_highlight"
+                            type="object"
+                    />
                     <field name="state" widget="statusbar" nolabel="1"
                            statusbar_visible="draft,in_consultation,done"/>
                 </header>

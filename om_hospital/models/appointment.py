@@ -52,7 +52,7 @@ class HospitalAppointment(models.Model):
         res = super().write(vals)
         self.set_line_number()
         return res
-    
+
     def set_line_number(self):
         sl_no = 0
         for line in self.pharmacy_line_ids:
@@ -118,6 +118,12 @@ class HospitalAppointment(models.Model):
             'target': 'new',
             'url': whatsapp_api_url,
         }
+
+    def action_send_email(self):
+        template = self.env.ref('om_hospital.mail_template_appointment')
+        for rec in self:
+            if rec.patient_id.email:
+                template.send_mail(rec.id)
 
     def action_notification(self):
         action = self.env.ref('om_hospital.action_hospital_patient')
